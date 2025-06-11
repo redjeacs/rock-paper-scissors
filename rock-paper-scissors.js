@@ -1,31 +1,45 @@
-  let rock = 'rock';
-  let paper = 'paper';
-  let scissors = 'scissors';
   let humanScore = 0;
   let computerScore =0;
 
-function getComputerChoice() {
-  let computerChoice = Math.random();
-  if (computerChoice < 1/3) {
-    return choice = rock;
+function playRound(humanChoice, computerChoice) {
+  humanChoice.toLowerCase();
+  if (humanChoice === computerChoice) {
+    console.log('It\'s a Draw!')
   }
-  else if (computerChoice < 2/3) {
-    return computerChoice = paper;
+  else if (
+  humanChoice === 'rock' && computerChoice === 'scissors' || 
+  humanChoice === 'paper' && computerChoice === 'rock' || 
+  humanChoice === 'scissors' && computerChoice === 'paper'
+  ) {
+    console.log('You Win! ' + humanChoice + ' beats ' + computerChoice)
+    ++humanScore
   }
   else {
-    return computerChoice = scissors;
+    console.log('You Lose! ' + humanChoice + ' loses to ' + computerChoice)
+    ++computerScore
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+function getComputerChoice() {
+  const computerChoice = Math.random();
+  if (computerChoice < 1/3) {
+    return 'rock';
+  }
+  else if (computerChoice < 2/3) {
+    return 'paper';
+  }
+  else {
+    return 'scissors';
   }
 }
 
 function getHumanChoice() {
-  let humanChoice = prompt('Make your Choice', ' ')
-  if (humanChoice === rock) {
-    return humanChoice = rock;
-  }
-  else if (humanChoice === paper) {
-    return humanChoice = paper;
-  }
-  else {
-    return humanChoice = scissors;
-  }
+  let choice = prompt('Make your Choice')
+  return choice
 }
+
