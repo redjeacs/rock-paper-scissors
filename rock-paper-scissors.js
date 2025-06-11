@@ -1,5 +1,15 @@
-  let humanScore = 0;
-  let computerScore =0;
+let humanScore = 0;
+let computerScore =0;
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
+
+playGame();
+function playGame () {
+  for (let i = 0; i < 5; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log('Score - You: ' + humanScore + ' vs. Computer: ' + computerScore)
+  }
+}
 
 function playRound(humanChoice, computerChoice) {
   humanChoice.toLowerCase();
@@ -12,25 +22,20 @@ function playRound(humanChoice, computerChoice) {
   humanChoice === 'scissors' && computerChoice === 'paper'
   ) {
     console.log('You Win! ' + humanChoice + ' beats ' + computerChoice)
-    ++humanScore
+    humanScore++
   }
   else {
     console.log('You Lose! ' + humanChoice + ' loses to ' + computerChoice)
-    ++computerScore
+    computerScore++
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
 function getComputerChoice() {
-  const computerChoice = Math.random();
-  if (computerChoice < 1/3) {
+  let computerChoice = Math.floor(Math.random() * 3);
+  if (computerChoice === 0) {
     return 'rock';
   }
-  else if (computerChoice < 2/3) {
+  else if (computerChoice === 1) {
     return 'paper';
   }
   else {
@@ -39,7 +44,6 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let choice = prompt('Make your Choice')
-  return choice
+  let choice = prompt('Make your Choice');
+  return choice;
 }
-
