@@ -1,15 +1,29 @@
-function getComputerChoice() {
   let rock = 'rock';
   let paper = 'paper';
   let scissors = 'scissors';
-  let choice = Math.random();
-  if (choice < 1/3) {
+
+function getComputerChoice() {
+  let computerChoice = Math.random();
+  if (computerChoice < 1/3) {
     return choice = rock;
   }
-  else if (choice < 2/3) {
-    return choice = paper;
+  else if (computerChoice < 2/3) {
+    return computerChoice = paper;
   }
   else {
-    return choice = scissors;
+    return computerChoice = scissors;
+  }
+}
+
+function getHumanChoice() {
+  let humanChoice = prompt('Make your Choice', ' ')
+  if (humanChoice === rock) {
+    return humanChoice = rock;
+  }
+  else if (humanChoice === paper) {
+    return humanChoice = paper;
+  }
+  else {
+    return humanChoice = scissors;
   }
 }
