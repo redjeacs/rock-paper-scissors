@@ -2,7 +2,14 @@ let humanScore = 0;
 let computerScore =0;
 
 
-playGame();
+const rockBtn = document.createElement('button');
+const paperBtn = document.createElement('button');
+const scissorsBtn = document.createElement('button');
+const body = document.querySelector('body');
+body.appendChild(rockBtn);
+body.appendChild(paperBtn);
+body.appendChild(scissorsBtn);
+
 function playGame () {
   for (let i = 0; i < 5; i++) {
     const humanSelection = getHumanChoice();
