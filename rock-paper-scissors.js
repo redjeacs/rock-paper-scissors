@@ -24,6 +24,16 @@ scissorsBtn.addEventListener('click', () => btnClicked('scissors'));
 function btnClicked(humanSelection) {
   const computerSelection = getComputerChoice();
   playRound(humanSelection, computerSelection);
+  if (humanScore === 5) {
+    const gameOver = document.createElement('div');
+    body.appendChild(gameOver);
+    gameOver.textContent = 'You Win!'
+  }
+  if (computerScore === 5) {
+    const gameOver = document.createElement('div');
+    body.appendChild(gameOver);
+    gameOver.textContent = 'You Lose!'
+  }
 }
 
 function playRound(humanChoice, computerChoice) {
