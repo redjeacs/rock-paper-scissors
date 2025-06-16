@@ -1,32 +1,33 @@
 let humanScore = 0;
 let computerScore =0;
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
+
 
 playGame();
 function playGame () {
   for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log('Score - You: ' + humanScore + ' vs. Computer: ' + computerScore)
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log('Score - You: ' + humanScore + ' vs. Computer: ' + computerScore);
   }
 }
 
 function playRound(humanChoice, computerChoice) {
   humanChoice.toLowerCase();
   if (humanChoice === computerChoice) {
-    console.log('It\'s a Draw!')
+    console.log('It\'s a Draw! Both chose ' + humanChoice);
   }
   else if (
   humanChoice === 'rock' && computerChoice === 'scissors' || 
   humanChoice === 'paper' && computerChoice === 'rock' || 
   humanChoice === 'scissors' && computerChoice === 'paper'
   ) {
-    console.log('You Win! ' + humanChoice + ' beats ' + computerChoice)
-    humanScore++
+    console.log('You Win! ' + humanChoice + ' beats ' + computerChoice);
+    humanScore++;
   }
   else {
-    console.log('You Lose! ' + humanChoice + ' loses to ' + computerChoice)
-    computerScore++
+    console.log('You Lose! ' + humanChoice + ' loses to ' + computerChoice);
+    computerScore++;
   }
 }
 
@@ -44,6 +45,6 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let choice = prompt('Make your Choice');
-  return choice;
+  return prompt('Make your Choice');
+  
 }
